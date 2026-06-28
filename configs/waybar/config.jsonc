@@ -1,0 +1,113 @@
+// -*- mode: jsonc -*-
+{
+    "layer": "top", // Waybar at top layer
+    "exclusive": true,
+    "spacing": 4, // Gaps between modules
+    "modules-left": [
+        "custom/power",
+        "custom/menu",
+        "hyprland/workspaces",
+        "hyprland/submap",
+        "custom/clipboard"
+    ],
+   "modules-center": [
+        "clock",
+    ],
+    "modules-right": [
+        "custom/weather",
+        // "pulseaudio#microphone",
+        // "network",
+        "tray",
+        "power-profiles-daemon",
+        "battery",
+        "custom/updates",
+        "memory",
+        "cpu"
+    ],
+
+    "tray": {
+        "icon-size": 17,
+        "spacing": 5,
+        "show-passive-items": true
+    },
+
+    "clock": {
+        "timezone": "Europe/Kyiv",
+        "format": "{:%H:%M}",
+        "format-alt": "{:%a %d %b | %H:%M}",
+        // "format": "{:%a %d %b %Y | %H:%M}",
+        "tooltip-format": "<big><tt><small>{calendar}</small></tt></big>",
+        // "on-click": "~/.config/hypr/scripts/float_calendar.sh"
+    },
+
+    "temperature": {
+        "critical-threshold": 80,
+        "format": " {temperatureC}°C {icon}",
+        "format-icons": ["", "", ""],
+        "on-click": "psensor"
+    },
+
+    "battery": {
+        "states": {
+            "good": 80,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{capacity}% {icon}",
+        "format-full": "{capacity}% {icon}",
+        "format-charging": "{capacity}% ",
+        "format-plugged": "{capacity}% ",
+        "format-alt": "{time} {icon}",
+        "format-icons": ["", "", "", "", ""]
+    },
+
+    "network": {
+        "format-wifi": "{signalStrength}% ",
+        "format-ethernet": "Connected ",
+        "tooltip-format": "{ifname} via {gwaddr} ",
+        "format-linked": "{ifname} (No IP) ",
+        "format-disconnected": "Disconnected ⚠",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}",
+        "on-click-right": "nm-connection-editor"
+    },
+
+    "pulseaudio#microphone": {
+        "format": "{format_source}",
+        "format-source": "",
+        "format-source-muted": "",
+        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle",
+        "on-scroll-up": "wpctl set-volume -l 1 @DEFAULT_AUDIO_SOURCE@ 5%+",
+        "on-scroll-down": "wpctl set-volume -l 1 @DEFAULT_AUDIO_SOURCE@ 5%-",
+        "scroll-step": 5,
+        "tooltip": true,
+        "tooltip-format": " at {volume}%"
+    },
+
+    "custom/power": {
+    "format": "  ",
+    "on-click": "wlogout --protocol layer-shell",
+    "menu": "on-click-right",
+    "menu-file": "$HOME/.config/waybar/power_menu.xml", // Menu file in resources folder
+    "menu-actions": {
+        "shutdown": "shutdown",
+        "reboot": "reboot",
+        "suspend": "systemctl suspend",
+        "hibernate": "systemctl hibernate",
+        "logout": "hyprctl dispatch exit"
+        }
+    },
+    "custom/clipboard": {
+        "format": "󰅌",
+        "exec": "wl-clipboard-history -p",
+        "interval": 5,
+        "on-click": "$HOME/.config/waybar/scripts/clipboard.sh"
+    },
+    "cpu": {
+        "format": "{usage}% ",
+        "tooltip": true
+    },
+    "memory": {
+        "format": "{}% "
+    },
+}
+    

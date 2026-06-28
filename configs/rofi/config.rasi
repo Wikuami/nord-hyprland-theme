@@ -1,0 +1,8 @@
+
+@theme "/usr/share/rofi/themes/rounded-nord-dark.rasi"
+configuration {
+    modi: "drun,run";
+    show-icons: true;
+    icon-theme: "Papirus";
+    drun-display-format: "{icon} {name}";
+}

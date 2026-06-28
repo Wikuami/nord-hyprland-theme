@@ -1,0 +1,108 @@
+@define-color primary #d8dee9;
+@define-color background #3b4252;
+
+/* All Modules */
+* {
+  font-family: "Inter";
+  font-weight: 500;
+  font-size: 15px;
+  background: rgba(21, 18, 27, 0);
+}
+window#waybar {
+  color: @primary;
+}
+tooltip {
+  background: @background;
+  border-radius: 10px;
+  border-width: 10px;
+  border-style: solid;
+  border-color: #88c0d0;
+}
+menu menuitem:hover {
+  background-color: rgba(150, 216, 255, 0.1);
+  border-color: #88c0d0;
+}
+
+/* Workspaces */
+#workspaces button {
+  color: #eceff4;
+}
+#workspaces button.active {
+  color: @primary;
+}
+#workspaces button.urgent {
+  color: #11111b;
+  background: #a6e3a1;
+  border-radius: 10px;
+}
+#workspaces button:hover {
+  background: #010116;
+  color: #cdd6f4;
+  border-color: #88c0d0;
+  border-radius: 10px;
+}
+
+/* Bar modules */
+#window,
+#workspaces,
+#custom-clipboard,
+#menu,
+#idle_inhibitor,
+#pulseaudio,
+#battery,
+#network,
+#cpu,
+#memory,
+#clock,
+#tray,
+#custom-power {
+  background: @background;
+  opacity: 0.8;
+  padding: 0px 10px;
+  margin-top: 4px;
+  border: 1px solid #88c0d0;
+  border-radius: 11.5px;
+}
+
+/* Individual modules */
+
+menu {
+  background-color: @background;
+  border: 1px solid #5e81ac;
+  border-radius: 10px;
+}
+#battery {
+  color: #a3be8c;
+  padding-right: 15px;
+}
+#clock {
+  margin-right: 5px;
+}
+#custom-clipboard {
+  padding-left: 11px;
+  padding-right: 12px;
+}
+#custom-power {
+  font-size: 16px;
+  margin-left: 80px;
+  padding-left: 3px;
+}
+/* Not Used CSS Modues, defined with other Modules above */
+#workspaces {
+/* Add unique CSS Options */
+}
+#workspaces button.focused {
+/* Add unique CSS Options */
+}
+#pulseaudio.microphone {
+/* Add unique CSS Options */
+}
+#network {
+/* Add unique CSS Options */
+}
+#cpu {
+  margin-right: 80px;
+}
+#memory {
+/* Add unique CSS Options */
+}
