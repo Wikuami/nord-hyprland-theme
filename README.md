@@ -1,0 +1,1 @@
+# nord-hyprland-theme
